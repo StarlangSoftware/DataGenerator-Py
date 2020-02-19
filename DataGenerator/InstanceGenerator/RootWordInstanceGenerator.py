@@ -17,23 +17,23 @@ class RootWordInstanceGenerator(InstanceGenerator):
     def addAttributesForEmptyWords(self, current: Instance, emptyWord: str):
         pass
 
-    """
-    Generates a single classification instance of the root word detection problem for the given word of the
-    given sentence. If the word does not have a morphological parse, the method throws InstanceNotGenerated.
-
-    PARAMETERS
-    ----------
-    sentence : Sentence
-        Input sentence.
-    wordIndex : int
-        The index of the word in the sentence.
-        
-    RETURNS
-    -------
-    Instance
-        Classification instance.
-    """
     def generateInstanceFromSentence(self, sentence: Sentence, wordIndex: int) -> Instance:
+        """
+        Generates a single classification instance of the root word detection problem for the given word of the
+        given sentence. If the word does not have a morphological parse, the method throws InstanceNotGenerated.
+
+        PARAMETERS
+        ----------
+        sentence : Sentence
+            Input sentence.
+        wordIndex : int
+            The index of the word in the sentence.
+
+        RETURNS
+        -------
+        Instance
+            Classification instance.
+        """
         word = sentence.getWord(wordIndex)
         if isinstance(word, AnnotatedWord):
             current = Instance(word.getParse().getWord().getName())
