@@ -1,6 +1,7 @@
 # DataGenerator
+
 Classification dataset generator library for high level Nlp tasks
------------------------------------
+
 For Developers
 ============
 You can also see either [Java](https://github.com/olcaytaner/DataGenerator) 
