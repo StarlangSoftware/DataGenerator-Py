@@ -62,18 +62,18 @@ Detailed Description
 
 DataSet yaratmak için AnnotatedDataSetGenerator sınıfı önce üretilir.
 
-	AnnotatedDataSetGenerator(String directory, String pattern, InstanceGenerator instanceGenerator)
+	AnnotatedDataSetGenerator(self, folder: str, pattern: str, instanceGenerator: InstanceGenerator)
 
 Ardından generate metodu ile DataSet yaratılır.
 
-	DataSet generate()
+	generate(self) -> DataSet
 
 ## InstanceGenerator
 
 DataGeneratorlerin InstanceGeneratorlere ihtiyacı vardır. Bunlar bir tek kelimeden bir 
 Instance yaratan sınıflardır.
 
-	Instance generateInstanceFromSentence(Sentence sentence, int wordIndex)
+	generateInstanceFromSentence(self, sentence: Sentence, wordIndex: int) -> Instance
 
 NER problemi için NerInstanceGenerator, FeaturedNerInstanceGenerator ve 
 VectorizedNerInstanceGeneratorsınıfı
