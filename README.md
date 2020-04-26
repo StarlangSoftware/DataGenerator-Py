@@ -1,6 +1,8 @@
 # DataGenerator
 
-Classification dataset generator library for high level Nlp tasks
+For Developers
+============
+You can also see [Java](https://github.com/starlangsoftware/DataGenerator), [C++](https://github.com/starlangsoftware/DataGenerator-CPP),  or [C#](https://github.com/starlangsoftware/DataGenerator-CS) repository.
 
 For Developers
 ============
