@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='NlpToolkit-DataGenerator',
-    version='1.0.1',
+    version='1.0.2',
     packages=['DataGenerator', 'DataGenerator.Attribute', 'DataGenerator.CorpusGenerator',
               'DataGenerator.DatasetGenerator', 'DataGenerator.InstanceGenerator'],
     url='https://github.com/olcaytaner/DataGenerator-Py',

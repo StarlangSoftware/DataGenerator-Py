@@ -1,9 +1,12 @@
 from AnnotatedSentence.ViewLayerType import ViewLayerType
 from AnnotatedTree.TreeBankDrawable import TreeBankDrawable
+from AnnotatedSentence.AnnotatedSentence import AnnotatedSentence
+from AnnotatedSentence.AnnotatedWord import AnnotatedWord
+from MorphologicalDisambiguation.DisambiguatedWord import DisambiguatedWord
 from MorphologicalDisambiguation.DisambiguationCorpus import DisambiguationCorpus
 
 
-class DisambiguationCorpusGenerator:
+class TreeDisambiguationCorpusGenerator:
 
     __treeBank: TreeBankDrawable
 
@@ -37,5 +40,11 @@ class DisambiguationCorpusGenerator:
             parseTree = self.__treeBank.get(i)
             if parseTree.layerAll(ViewLayerType.INFLECTIONAL_GROUP):
                 sentence = parseTree.generateAnnotatedSentence()
-                corpus.addSentence(sentence)
+                disambiguationSentence = AnnotatedSentence()
+                for j in range(sentence.wordCount()):
+                    annotatedWord = sentence.getWord(j)
+                    if isinstance(annotatedWord, AnnotatedWord):
+                        disambiguationSentence.addWord(DisambiguatedWord(annotatedWord.getName(),
+                                                                         annotatedWord.getParse()))
+                corpus.addSentence(disambiguationSentence)
         return corpus
