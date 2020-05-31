@@ -6,8 +6,6 @@ You can also see [Java](https://github.com/starlangsoftware/DataGenerator), [C++
 
 For Developers
 ============
-You can also see either [Java](https://github.com/olcaytaner/DataGenerator) 
-or [C++](https://github.com/olcaytaner/DataGenerator-CPP) repository.
 
 ## Requirements
 
@@ -35,7 +33,7 @@ Use Git for cloning the code to your local or below line for Ubuntu:
 
 A directory called DataGenerator will be created. Or you can use below link for exploring the code:
 
-	git clone https://github.com/olcaytaner/DataGenerator-Py.git
+	git clone https://github.com/starlangsoftware/DataGenerator-Py.git
 
 ## Open project with Pycharm IDE
 
@@ -47,12 +45,6 @@ Steps for opening the cloned project:
 * Select open as project option
 * Couple of seconds, dependencies will be downloaded. 
 
-
-## Compile
-
-**From IDE**
-
-After being done with the downloading and Maven indexing, select **Build Project** option from **Build** menu. After compilation process, user can run DataGenerator.
 
 
 Detailed Description
