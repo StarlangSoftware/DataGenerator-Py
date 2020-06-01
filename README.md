@@ -2,9 +2,6 @@ For Developers
 ============
 You can also see [Java](https://github.com/starlangsoftware/DataGenerator), [C++](https://github.com/starlangsoftware/DataGenerator-CPP),  or [C#](https://github.com/starlangsoftware/DataGenerator-CS) repository.
 
-For Developers
-============
-
 ## Requirements
 
 * [Python 3.7 or higher](#python)
