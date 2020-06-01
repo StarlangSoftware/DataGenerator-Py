@@ -1,5 +1,3 @@
-# DataGenerator
-
 For Developers
 ============
 You can also see [Java](https://github.com/starlangsoftware/DataGenerator), [C++](https://github.com/starlangsoftware/DataGenerator-CPP),  or [C#](https://github.com/starlangsoftware/DataGenerator-CS) repository.
@@ -44,56 +42,3 @@ Steps for opening the cloned project:
 * Choose `DataGenerator-PY` file
 * Select open as project option
 * Couple of seconds, dependencies will be downloaded. 
-
-
-
-Detailed Description
-============
-+ [AnnotatedDataSetGenerator](#annotateddatasetgenerator)
-+ [InstanceGenerator](#instancegenerator)
-
-## AnnotatedDataSetGenerator
-
-DataSet yaratmak için AnnotatedDataSetGenerator sınıfı önce üretilir.
-
-	AnnotatedDataSetGenerator(self, folder: str, pattern: str, instanceGenerator: InstanceGenerator)
-
-Ardından generate metodu ile DataSet yaratılır.
-
-	generate(self) -> DataSet
-
-## InstanceGenerator
-
-DataGeneratorlerin InstanceGeneratorlere ihtiyacı vardır. Bunlar bir tek kelimeden bir 
-Instance yaratan sınıflardır.
-
-	generateInstanceFromSentence(self, sentence: Sentence, wordIndex: int) -> Instance
-
-NER problemi için NerInstanceGenerator, FeaturedNerInstanceGenerator ve 
-VectorizedNerInstanceGeneratorsınıfı
-
-ShallowParse problemi için ShallowParseInstanceGenerator, 
-FeaturedShallowParseInstanceGenerator ve VectorizedShallowParseInstanceGenerator sınıfı
-
-WSD problemi için SemanticInstanceGenerator, FeaturedSemanticInstanceGenerator ve
-VectorizedSemanticInstanceGenerator sınıfı
-
-Morphological Disambiguation problemi için FeaturedDisambiguationInstanceGenerator sınıfı
-
-## Cite
-If you use this resource on your research, please cite the following paper: 
-
-```
-@article{acikgoz,
-  title={All-words word sense disambiguation for {T}urkish},
-  author={O. Açıkg{\"o}z and A. T. G{\"u}rkan and B. Ertopçu and O. Topsakal and B. {\"O}zenç and A. B. Kanburoğlu and {\.{I}}. Çam and B. Avar and G. Ercan and O. T. Y{\i}ld{\i}z},
-  journal={2017 International Conference on Computer Science and Engineering (UBMK)},
-  year={2017},
-  pages={490-495}
-}
-@inproceedings{ertopcu17,  
-	author={B. {Ertopçu} and A. B. {Kanburoğlu} and O. {Topsakal} and O. {Açıkgöz} and A. T. {Gürkan} and B. {Özenç} and İ. {Çam} and B. {Avar} and G. {Ercan} and O. T. {Yıldız}},  
-	booktitle={2017 International Conference on Computer Science and Engineering (UBMK)},  title={A new approach for named entity recognition},   
-	year={2017},  
-	pages={474-479}
-}
