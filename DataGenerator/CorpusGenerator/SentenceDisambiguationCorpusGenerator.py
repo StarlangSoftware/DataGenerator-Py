@@ -5,7 +5,7 @@ from MorphologicalDisambiguation.DisambiguatedWord import DisambiguatedWord
 from MorphologicalDisambiguation.DisambiguationCorpus import DisambiguationCorpus
 
 
-class TreeDisambiguationCorpusGenerator:
+class SentenceDisambiguationCorpusGenerator:
 
     __annotatedCorpus: AnnotatedCorpus
 
