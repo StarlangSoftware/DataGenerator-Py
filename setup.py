@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='NlpToolkit-DataGenerator',
-    version='1.0.4',
+    version='1.0.5',
     packages=['DataGenerator', 'DataGenerator.Attribute', 'DataGenerator.CorpusGenerator',
               'DataGenerator.DatasetGenerator', 'DataGenerator.InstanceGenerator'],
     url='https://github.com/StarlangSoftware/DataGenerator-Py',

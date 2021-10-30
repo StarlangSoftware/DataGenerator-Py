@@ -1,8 +1,8 @@
 from AnnotatedSentence.AnnotatedSentence import AnnotatedSentence
 from AnnotatedSentence.AnnotatedWord import AnnotatedWord
 from AnnotatedSentence.AnnotatedCorpus import AnnotatedCorpus
-from MorphologicalDisambiguation.DisambiguatedWord import DisambiguatedWord
-from MorphologicalDisambiguation.DisambiguationCorpus import DisambiguationCorpus
+from DisambiguationCorpus.DisambiguatedWord import DisambiguatedWord
+from DisambiguationCorpus.DisambiguationCorpus import DisambiguationCorpus
 
 
 class SentenceDisambiguationCorpusGenerator:
