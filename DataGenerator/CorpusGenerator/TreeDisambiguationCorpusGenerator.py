@@ -2,8 +2,8 @@ from AnnotatedSentence.ViewLayerType import ViewLayerType
 from AnnotatedTree.TreeBankDrawable import TreeBankDrawable
 from AnnotatedSentence.AnnotatedSentence import AnnotatedSentence
 from AnnotatedSentence.AnnotatedWord import AnnotatedWord
-from MorphologicalDisambiguation.DisambiguatedWord import DisambiguatedWord
-from MorphologicalDisambiguation.DisambiguationCorpus import DisambiguationCorpus
+from DisambiguationCorpus.DisambiguatedWord import DisambiguatedWord
+from DisambiguationCorpus.DisambiguationCorpus import DisambiguationCorpus
 
 
 class TreeDisambiguationCorpusGenerator:
