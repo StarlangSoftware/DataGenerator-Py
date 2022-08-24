@@ -9,7 +9,7 @@ Video Lectures
 For Developers
 ============
 
-You can also see [Cython](https://github.com/starlangsoftware/DataGenerator-Cy), [Java](https://github.com/starlangsoftware/DataGenerator), [Js](https://github.com/starlangsoftware/DataGenerator-Js), [C++](https://github.com/starlangsoftware/DataGenerator-CPP),  or [C#](https://github.com/starlangsoftware/DataGenerator-CS) repository.
+You can also see [Cython](https://github.com/starlangsoftware/DataGenerator-Cy), [Java](https://github.com/starlangsoftware/DataGenerator), [Swift](https://github.com/starlangsoftware/DataGenerator-Swift), [Js](https://github.com/starlangsoftware/DataGenerator-Js), [C++](https://github.com/starlangsoftware/DataGenerator-CPP),  or [C#](https://github.com/starlangsoftware/DataGenerator-CS) repository.
 
 ## Requirements
 
