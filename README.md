@@ -4,7 +4,7 @@ Data Generator
 Video Lectures
 ============
 
-[<img src=https://github.com/StarlangSoftware/DataGenerator/blob/master/video1.jpg width="50%">](https://youtu.be/E9rE_eCffPE)
+[<img src=https://github.com/StarlangSoftware/DataGenerator/blob/master/video1.jpg width="50%">](https://youtu.be/E9rE_eCffPE)[<img src=https://github.com/StarlangSoftware/DataGenerator/blob/master/video2.jpg width="50%">](https://youtu.be/ISHmGWvHL7k)
 
 For Developers
 ============
