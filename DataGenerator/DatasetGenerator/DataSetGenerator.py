@@ -7,10 +7,13 @@ from DataGenerator.InstanceGenerator.InstanceGenerator import InstanceGenerator
 
 class DataSetGenerator:
 
-    __treeBank: TreeBankDrawable
-    instanceGenerator: InstanceGenerator
+    __tree_bank: TreeBankDrawable
+    __instance_generator: InstanceGenerator
 
-    def __init__(self, folder: str, pattern: str, instanceGenerator: InstanceGenerator):
+    def __init__(self,
+                 folder: str,
+                 pattern: str,
+                 instanceGenerator: InstanceGenerator):
         """
         Constructor for the DataSetGenerator which takes input the data directory, the pattern for the training files
         included, and an instanceGenerator. The constructor loads the treebank from the given directory
@@ -26,8 +29,8 @@ class DataSetGenerator:
         instanceGenerator : InstanceGenerator
             The instance generator used to generate the dataset.
         """
-        self.__treeBank = TreeBankDrawable(folder, pattern)
-        self.instanceGenerator = instanceGenerator
+        self.__tree_bank = TreeBankDrawable(folder, pattern)
+        self.__instance_generator = instanceGenerator
 
     def setInstanceGenerator(self, instanceGenerator: InstanceGenerator):
         """
@@ -38,7 +41,7 @@ class DataSetGenerator:
         instanceGenerator : InstanceGenerator
             Input instanceGenerator
         """
-        self.instanceGenerator = instanceGenerator
+        self.__instance_generator = instanceGenerator
 
     def generateInstanceListFromTree(self, parseTree: ParseTreeDrawable) -> list:
         """
@@ -55,13 +58,13 @@ class DataSetGenerator:
         list
             A list of instances.
         """
-        instanceList = []
-        annotatedSentence = parseTree.generateAnnotatedSentence()
-        for i in range(annotatedSentence.wordCount()):
-            generatedSentence = self.instanceGenerator.generateInstanceFromSentence(annotatedSentence, i)
-            if generatedSentence is not None:
-                instanceList.append(generatedSentence)
-        return instanceList
+        instance_list = []
+        annotated_sentence = parseTree.generateAnnotatedSentence()
+        for i in range(annotated_sentence.wordCount()):
+            generated_sentence = self.__instance_generator.generateInstanceFromSentence(annotated_sentence, i)
+            if generated_sentence is not None:
+                instance_list.append(generated_sentence)
+        return instance_list
 
     def generate(self) -> DataSet:
         """
@@ -72,8 +75,8 @@ class DataSetGenerator:
         DataSet
             Created dataset.
         """
-        dataSet = DataSet()
-        for i in range(self.__treeBank.size()):
-            parseTree = self.__treeBank.get(i)
-            dataSet.addInstanceList(self.generateInstanceListFromTree(parseTree))
-        return dataSet
+        data_set = DataSet()
+        for i in range(self.__tree_bank.size()):
+            parse_tree = self.__tree_bank.get(i)
+            data_set.addInstanceList(self.generateInstanceListFromTree(parse_tree))
+        return data_set

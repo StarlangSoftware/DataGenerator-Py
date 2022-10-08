@@ -4,7 +4,10 @@ from DataGenerator.InstanceGenerator.NerInstanceGenerator import NerInstanceGene
 
 class NerDataSetGenerator(DataSetGenerator):
 
-    def __init__(self, folder: str, pattern: str, nerInstanceGenerator: NerInstanceGenerator):
+    def __init__(self,
+                 folder: str,
+                 pattern: str,
+                 nerInstanceGenerator: NerInstanceGenerator):
         """
         Constructor for the NerDataSetGenerator which takes input the data directory, the pattern for the training files
         included, and an instanceGenerator. The constructor calls its super class with these inputs.

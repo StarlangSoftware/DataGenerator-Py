@@ -4,7 +4,10 @@ from DataGenerator.InstanceGenerator.RootWordInstanceGenerator import RootWordIn
 
 class RootWordDataSetGenerator(DataSetGenerator):
 
-    def __init__(self, folder: str, pattern: str, rootWordInstanceGenerator: RootWordInstanceGenerator):
+    def __init__(self,
+                 folder: str,
+                 pattern: str,
+                 rootWordInstanceGenerator: RootWordInstanceGenerator):
         """
         Constructor for the RootWordDataSetGenerator which takes input the data directory, the pattern for the training
         files included, and an instanceGenerator. The constructor calls its super class with these inputs.

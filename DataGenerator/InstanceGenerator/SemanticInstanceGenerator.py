@@ -12,9 +12,11 @@ from DataGenerator.InstanceGenerator.SimpleWindowInstanceGenerator import Simple
 class SemanticInstanceGenerator(SimpleWindowInstanceGenerator):
 
     __fsm: FsmMorphologicalAnalyzer
-    __wordNet: WordNet
+    __word_net: WordNet
 
-    def __init__(self, fsm: FsmMorphologicalAnalyzer, wordNet: WordNet):
+    def __init__(self,
+                 fsm: FsmMorphologicalAnalyzer,
+                 wordNet: WordNet):
         """
         Constructor for the semantic instance generator. Takes morphological analyzer and wordnet as input to set the
         corresponding variables.
@@ -27,9 +29,12 @@ class SemanticInstanceGenerator(SimpleWindowInstanceGenerator):
             Wordnet to be used.
         """
         self.__fsm = fsm
-        self.__wordNet = wordNet
+        self.__word_net = wordNet
 
-    def addAttributesForWords(self, current: Instance, sentence: Sentence, wordIndex: int):
+    def addAttributesForWords(self,
+                              current: Instance,
+                              sentence: Sentence,
+                              wordIndex: int):
         """
         Generates a single classification instance of the WSD problem for the given word of the given sentence. If the
         word has not been labeled with sense tag yet, the method returns null. In the WSD problem, the system also
@@ -50,19 +55,23 @@ class SemanticInstanceGenerator(SimpleWindowInstanceGenerator):
         """
         pass
 
-    def addAttributesForEmptyWords(self, current: Instance, emptyWord: str):
+    def addAttributesForEmptyWords(self,
+                                   current: Instance,
+                                   emptyWord: str):
         pass
 
-    def generateInstanceFromSentence(self, sentence: Sentence, wordIndex: int) -> Instance:
+    def generateInstanceFromSentence(self,
+                                     sentence: Sentence,
+                                     wordIndex: int) -> Instance:
         if isinstance(sentence, AnnotatedSentence):
-            possibleSynSets = sentence.constructSynSets(self.__wordNet, self.__fsm, wordIndex)
+            possible_syn_sets = sentence.constructSynSets(self.__word_net, self.__fsm, wordIndex)
             word = sentence.getWord(wordIndex)
             if isinstance(word, AnnotatedWord):
-                classLabel = word.getSemantic()
-                current = CompositeInstance(classLabel)
-                possibleClassLabels = []
-                for synSet in possibleSynSets:
-                    possibleClassLabels.append(synSet.getId())
-                current.setPossibleClassLabels(possibleClassLabels)
+                class_label = word.getSemantic()
+                current = CompositeInstance(class_label)
+                possible_class_labels = []
+                for synSet in possible_syn_sets:
+                    possible_class_labels.append(synSet.getId())
+                current.setPossibleClassLabels(possible_class_labels)
                 self.addAttributes(current, sentence, wordIndex)
                 return current

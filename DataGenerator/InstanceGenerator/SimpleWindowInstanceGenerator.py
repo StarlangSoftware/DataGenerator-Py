@@ -8,14 +8,22 @@ from abc import abstractmethod
 class SimpleWindowInstanceGenerator(InstanceGenerator):
 
     @abstractmethod
-    def addAttributesForWords(self, current: Instance, sentence: Sentence, wordIndex: int):
+    def addAttributesForWords(self,
+                              current: Instance,
+                              sentence: Sentence,
+                              wordIndex: int):
         pass
 
     @abstractmethod
-    def addAttributesForEmptyWords(self, current: Instance, emptyWord: str):
+    def addAttributesForEmptyWords(self,
+                                   current: Instance,
+                                   emptyWord: str):
         pass
 
-    def addAttributes(self, current: Instance, sentence: Sentence, wordIndex: int):
+    def addAttributes(self,
+                      current: Instance,
+                      sentence: Sentence,
+                      wordIndex: int):
         """
         addAttributes adds all attributes of the previous words, the current wordn, and next words of the given word
         to the given instance. If the previous or next words does not exists, the method calls
@@ -32,13 +40,13 @@ class SimpleWindowInstanceGenerator(InstanceGenerator):
         wordIndex : int
             The index of the word in the sentence.
         """
-        for i in range(self.windowSize):
-            if wordIndex - self.windowSize + i >= 0:
-                self.addAttributesForWords(current, sentence, wordIndex - self.windowSize + i)
+        for i in range(self.window_size):
+            if wordIndex - self.window_size + i >= 0:
+                self.addAttributesForWords(current, sentence, wordIndex - self.window_size + i)
             else:
                 self.addAttributesForEmptyWords(current, "<s>")
             self.addAttributesForWords(current, sentence, wordIndex)
-        for i in range(self.windowSize):
+        for i in range(self.window_size):
             if wordIndex + i + 1 < sentence.wordCount():
                 self.addAttributesForWords(current, sentence, wordIndex + i + 1)
             else:

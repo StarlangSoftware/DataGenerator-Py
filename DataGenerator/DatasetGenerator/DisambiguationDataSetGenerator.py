@@ -4,7 +4,10 @@ from DataGenerator.InstanceGenerator.DisambiguationInstanceGenerator import Disa
 
 class DisambiguationDataSetGenerator(DataSetGenerator):
 
-    def __init__(self, folder: str, pattern: str, disambiguationInstanceGenerator: DisambiguationInstanceGenerator):
+    def __init__(self,
+                 folder: str,
+                 pattern: str,
+                 disambiguationInstanceGenerator: DisambiguationInstanceGenerator):
         """
         Constructor for the DisambiguationDataSetGenerator which takes input the data directory, the pattern for the
         training files included, and an instanceGenerator. The constructor calls its super class with these inputs.

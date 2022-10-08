@@ -5,9 +5,11 @@ from NamedEntityRecognition.NERCorpus import NERCorpus
 
 class NERCorpusGenerator:
 
-    __treeBank: TreeBankDrawable
+    __tree_bank: TreeBankDrawable
 
-    def __init__(self, folder: str, pattern: str):
+    def __init__(self,
+                 folder: str,
+                 pattern: str):
         """
         Constructor for the NERCorpusGenerator which takes input the data directory and the pattern for the
         training files included. The constructor loads the treebank from the given directory including the given files
@@ -20,7 +22,7 @@ class NERCorpusGenerator:
         pattern : str
             Pattern of the tree files to be included in the treebank. Use "." for all files.
         """
-        self.__treeBank = TreeBankDrawable(folder, pattern)
+        self.__tree_bank = TreeBankDrawable(folder, pattern)
 
     def generate(self) -> NERCorpus:
         """
@@ -33,8 +35,8 @@ class NERCorpusGenerator:
             Created disambiguation corpus.
         """
         corpus = NERCorpus()
-        for i in range(self.__treeBank.size()):
-            parseTree = self.__treeBank.get(i)
+        for i in range(self.__tree_bank.size()):
+            parseTree = self.__tree_bank.get(i)
             if parseTree.layerAll(ViewLayerType.NER):
                 sentence = parseTree.generateAnnotatedSentence()
                 corpus.addSentence(sentence)

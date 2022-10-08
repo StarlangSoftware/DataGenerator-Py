@@ -5,7 +5,9 @@ from Corpus.Sentence import Sentence
 
 class Predicate(DiscreteAttribute):
 
-    def __init__(self, sentence: Sentence, index: int):
+    def __init__(self,
+                 sentence: Sentence,
+                 index: int):
         """
         Discrete attribute for a given word. Returns the nearest predicate word to the given word
 

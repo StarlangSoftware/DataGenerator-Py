@@ -7,9 +7,12 @@ from DataGenerator.InstanceGenerator.InstanceGenerator import InstanceGenerator
 class AnnotatedDatasetGenerator:
 
     __corpus: AnnotatedCorpus
-    instanceGenerator: InstanceGenerator
+    __instance_generator: InstanceGenerator
 
-    def __init__(self, folder: str, pattern: str, instanceGenerator: InstanceGenerator):
+    def __init__(self,
+                 folder: str,
+                 pattern: str,
+                 instanceGenerator: InstanceGenerator):
         """
         Constructor for the AnnotatedDataSetGenerator which takes input the data directory, the pattern for the
         training files included, and an instanceGenerator. The constructor loads the sentence corpus from the given
@@ -25,7 +28,7 @@ class AnnotatedDatasetGenerator:
             The instance generator used to generate the dataset.
         """
         self.__corpus = AnnotatedCorpus(folder, pattern)
-        self.instanceGenerator = instanceGenerator
+        self.__instance_generator = instanceGenerator
 
     def setInstanceGenerator(self, instanceGenerator: InstanceGenerator):
         """
@@ -36,7 +39,7 @@ class AnnotatedDatasetGenerator:
         instanceGenerator : InstanceGenerator
             Input instanceGenerator
         """
-        self.instanceGenerator = instanceGenerator
+        self.__instance_generator = instanceGenerator
 
     def generate(self) -> DataSet:
         """
@@ -47,10 +50,10 @@ class AnnotatedDatasetGenerator:
         DataSet
             Created dataset.
         """
-        dataSet = DataSet()
+        data_set = DataSet()
         for sentence in self.__corpus.sentences:
             for j in range(sentence.wordCount()):
-                generatedInstance = self.instanceGenerator.generateInstanceFromSentence(sentence, j)
-                if generatedInstance is not None:
-                    dataSet.addInstance(generatedInstance)
-        return dataSet
+                generated_instance = self.__instance_generator.generateInstanceFromSentence(sentence, j)
+                if generated_instance is not None:
+                    data_set.addInstance(generated_instance)
+        return data_set

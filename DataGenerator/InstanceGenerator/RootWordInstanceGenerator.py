@@ -10,14 +10,21 @@ from DataGenerator.InstanceGenerator.InstanceGenerator import InstanceGenerator
 class RootWordInstanceGenerator(InstanceGenerator):
 
     @abstractmethod
-    def addAttributesForPreviousWords(self, current: Instance, sentence: Sentence, wordIndex: int):
+    def addAttributesForPreviousWords(self,
+                                      current: Instance,
+                                      sentence: Sentence,
+                                      wordIndex: int):
         pass
 
     @abstractmethod
-    def addAttributesForEmptyWords(self, current: Instance, emptyWord: str):
+    def addAttributesForEmptyWords(self,
+                                   current: Instance,
+                                   emptyWord: str):
         pass
 
-    def generateInstanceFromSentence(self, sentence: Sentence, wordIndex: int) -> Instance:
+    def generateInstanceFromSentence(self,
+                                     sentence: Sentence,
+                                     wordIndex: int) -> Instance:
         """
         Generates a single classification instance of the root word detection problem for the given word of the
         given sentence. If the word does not have a morphological parse, the method throws InstanceNotGenerated.
@@ -37,9 +44,9 @@ class RootWordInstanceGenerator(InstanceGenerator):
         word = sentence.getWord(wordIndex)
         if isinstance(word, AnnotatedWord):
             current = Instance(word.getParse().getWord().getName())
-            for i in range(self.windowSize):
-                if wordIndex - self.windowSize + i >= 0:
-                    self.addAttributesForPreviousWords(current, sentence, wordIndex - self.windowSize + i)
+            for i in range(self.window_size):
+                if wordIndex - self.window_size + i >= 0:
+                    self.addAttributesForPreviousWords(current, sentence, wordIndex - self.window_size + i)
                 else:
                     self.addAttributesForEmptyWords(current, "<s>")
             self.addAttributesForPreviousWords(current, sentence, wordIndex)

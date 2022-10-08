@@ -7,13 +7,20 @@ from DataGenerator.InstanceGenerator.SimpleWindowInstanceGenerator import Simple
 
 class ShallowParseInstanceGenerator(SimpleWindowInstanceGenerator):
 
-    def addAttributesForWords(self, current: Instance, sentence: Sentence, wordIndex: int):
+    def addAttributesForWords(self,
+                              current: Instance,
+                              sentence: Sentence,
+                              wordIndex: int):
         pass
 
-    def addAttributesForEmptyWords(self, current: Instance, emptyWord: str):
+    def addAttributesForEmptyWords(self,
+                                   current: Instance,
+                                   emptyWord: str):
         pass
 
-    def generateInstanceFromSentence(self, sentence: Sentence, wordIndex: int) -> Instance:
+    def generateInstanceFromSentence(self,
+                                     sentence: Sentence,
+                                     wordIndex: int) -> Instance:
         """
         Generates a single classification instance of the Shallow Parse problem for the given word of the given
         sentence. If the  word has not been labeled with shallow parse tag yet, the method returns null.
@@ -32,7 +39,7 @@ class ShallowParseInstanceGenerator(SimpleWindowInstanceGenerator):
         """
         word = sentence.getWord(wordIndex)
         if isinstance(word, AnnotatedWord):
-            classLabel = word.getShallowParse()
-            current = Instance(classLabel)
+            class_label = word.getShallowParse()
+            current = Instance(class_label)
             self.addAttributes(current, sentence, wordIndex)
             return current

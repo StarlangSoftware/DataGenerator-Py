@@ -4,7 +4,10 @@ from DataGenerator.InstanceGenerator.SemanticInstanceGenerator import SemanticIn
 
 class SemanticDataSetGenerator(DataSetGenerator):
 
-    def __init__(self, folder: str, pattern: str, semanticInstanceGenerator: SemanticInstanceGenerator):
+    def __init__(self,
+                 folder: str,
+                 pattern: str,
+                 semanticInstanceGenerator: SemanticInstanceGenerator):
         """
         Constructor for the NerDataSetGenerator which takes input the data directory, the pattern for the training files
         included, and an instanceGenerator. The constructor calls its super class with these inputs.

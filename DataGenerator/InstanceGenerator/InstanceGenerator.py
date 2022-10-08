@@ -6,8 +6,10 @@ from Corpus.Sentence import Sentence
 
 class InstanceGenerator:
 
-    windowSize: int
+    window_size: int
 
     @abstractmethod
-    def generateInstanceFromSentence(self, sentence: Sentence, wordIndex: int) -> Instance:
+    def generateInstanceFromSentence(self,
+                                     sentence: Sentence,
+                                     wordIndex: int) -> Instance:
         pass
